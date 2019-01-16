@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  appearance: none;
+  /* font-smoothing: antialiased; */
+}
+
+body {
+  line-height: 1.4em;
+  background-color: #222 !important;
+  color: #FFF !important;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  /* font-smoothing: antialiased; */
+}
+
+button,
+input[type='checkbox'] {
+  outline: none;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: auto;
+}
+
+.navigator {
+  display: flex;
+  width: 20%;
+  height: auto;
+  border-right: 1px solid #444;
+}
