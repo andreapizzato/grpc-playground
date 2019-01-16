@@ -10,7 +10,7 @@ export namespace WelcomePage {
   export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
     theme: Theme;
 
-    openFile: typeof fileActions.openFile;
+    openFile: typeof fileActions.openFile.started;
   }
 }
 
@@ -28,10 +28,11 @@ const styles = (theme: Theme) => createStyles({
 
 @connect(
   (state: any): Pick<WelcomePage.Props, any> => {
+    console.log("WELCOME STATE", state);
     return {  };
   },
   (dispatch: Dispatch): Pick<WelcomePage.Props, 'openFile'> => ({
-    openFile: bindActionCreators(fileActions.openFile, dispatch)
+    openFile: bindActionCreators(fileActions.openFile.started, dispatch)
   })
 )
 class WelcomePage extends React.Component<WelcomePage.Props> {
