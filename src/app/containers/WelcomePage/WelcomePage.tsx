@@ -11,6 +11,7 @@ export namespace WelcomePage {
     theme: Theme;
 
     openFile: typeof fileActions.openFile.started;
+    files: typeof fileActions.openFile.done
   }
 }
 
@@ -18,8 +19,10 @@ const styles = (theme: Theme) => createStyles({
   page: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: theme.spacing.unit * 3,
+    height: "calc(100% - 64px)",
   },
   leftIcon: {
     marginRight: theme.spacing.unit,
@@ -27,9 +30,9 @@ const styles = (theme: Theme) => createStyles({
 });
 
 @connect(
-  (state: any): Pick<WelcomePage.Props, any> => {
-    console.log("WELCOME STATE", state);
-    return {  };
+  (state: any): Pick<WelcomePage.Props, "files"> => {
+    const files = state.files
+    return { files };
   },
   (dispatch: Dispatch): Pick<WelcomePage.Props, 'openFile'> => ({
     openFile: bindActionCreators(fileActions.openFile.started, dispatch)
@@ -51,7 +54,6 @@ class WelcomePage extends React.Component<WelcomePage.Props> {
 
   render() {
     const { classes } = this.props;
-
     return (
       <div className={classes.page}>
         <Typography variant="h3">Welcome</Typography>

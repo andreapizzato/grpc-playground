@@ -7,7 +7,7 @@ import { App } from './app';
 import { colors, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 // prepare store
-const store = configureStore(history);
+const store = configureStore();
 
 const theme = createMuiTheme({
   palette: {
@@ -24,7 +24,7 @@ ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <ConnectedRouter history={history}>
-        <App />
+        <App history={history}/>
       </ConnectedRouter>
     </MuiThemeProvider>
   </Provider>,

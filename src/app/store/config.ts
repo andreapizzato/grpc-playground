@@ -12,7 +12,7 @@ import { routerMiddleware } from 'connected-react-router';
 
 export const history = createBrowserHistory();
 
-export default function configureStore(preloadedState: any) {
+export default function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
 
   let middleware = applyMiddleware(
@@ -28,7 +28,6 @@ export default function configureStore(preloadedState: any) {
 
   const store = createStore(
     createRootReducer(history), // root reducer with router state
-    preloadedState,
     compose(middleware),
   );
 

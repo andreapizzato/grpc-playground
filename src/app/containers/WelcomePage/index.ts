@@ -1,1 +1,1 @@
-export { default as WelcomePage } from './WelcomePage';
+export { WelcomePage, default as WelcomePageComponent } from './WelcomePage';
