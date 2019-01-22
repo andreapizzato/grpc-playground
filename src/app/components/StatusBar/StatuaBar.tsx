@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { RouteComponentProps } from 'react-router';
 import { withStyles, Theme, createStyles, WithStyles, Typography } from '@material-ui/core';
+import { History } from 'history';
 
 export namespace StatusBar {
-  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
+  export interface Props extends WithStyles<typeof styles> {
     theme: Theme;
+
+    history: History
   }
 }
 
@@ -40,11 +42,11 @@ class StatusBar extends React.Component<StatusBar.Props> {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, history } = this.props;
 
     return (
       <div className={classes.statusbar}>
-        <Typography>Status bar</Typography>
+        <Typography>{history.location.pathname}</Typography>
       </div>
     );
   }

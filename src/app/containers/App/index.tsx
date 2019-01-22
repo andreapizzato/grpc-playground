@@ -196,7 +196,6 @@ class App extends React.Component<App.Props, App.IState> {
     ) {
       this.props.history.push("/uploadDone");
     }
-    console.log(this.props, "WELCOME PROPS")
   }
 
   componentDidMount() {
@@ -371,7 +370,7 @@ class App extends React.Component<App.Props, App.IState> {
           </main>
         </div>
 
-        <StatusBar />
+        <StatusBar history={this.props.history}/>
       </div>
     );
   }
