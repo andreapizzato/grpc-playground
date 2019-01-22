@@ -187,16 +187,22 @@ class App extends React.Component<App.Props, App.IState> {
 
   componentDidUpdate() {
     // TODO redirect
-    if (this.props.history.location.pathname === "/" && this.props.files.processedProto) {
+    if (
+        (
+          this.props.history.location.pathname === "/" ||
+          this.props.history.location.pathname.indexOf("index.html") >= 0
+        ) &&
+        this.props.files.processedProto
+    ) {
       this.props.history.push("/uploadDone");
     }
     console.log(this.props, "WELCOME PROPS")
   }
 
   componentDidMount() {
-    if (this.props.history.location.pathname.indexOf("index.html") >= 0 && !this.props.files.processedProto) {
-      this.props.history.push("/");
-    }
+    /* if (this.props.history.location.pathname.indexOf("index.html") >= 0 && !this.props.files.processedProto) {
+      this.props.history.replace("/");
+    } */
   }
 
   handleDrawerVoiceClick(namespace: string, service?: string) {
@@ -359,8 +365,8 @@ class App extends React.Component<App.Props, App.IState> {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Switch>
-              <Route exact path="/" component={WelcomePageComponent} />
               <Route exact path="/uploadDone" component={UploadDoneComponent} />
+              <Route path="/" component={WelcomePageComponent} />
             </Switch>
           </main>
         </div>
