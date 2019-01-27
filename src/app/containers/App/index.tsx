@@ -108,8 +108,8 @@ const styles = (theme: Theme) => createStyles({
 });
 
 @connect(
-  (state: any): Pick<App.Props, "files"> => {
-    console.log("INDEX", state.files)
+  (state: RootState): Pick<App.Props, "files"> => {
+    console.log("INDEX", state)
     return { files: state.files };
   },
   (dispatch: Dispatch): Pick<App.Props, any> => ({
